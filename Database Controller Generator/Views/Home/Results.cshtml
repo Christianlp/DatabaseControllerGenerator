@@ -1,0 +1,20 @@
+@model Database_Controller_Generator.Models.ResultObjects
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+<div>
+    <h3>Hostname: @Model.DatabaseObjects.Hostname</h3>
+    <h3>Database name: @Model.DatabaseObjects.Database</h3>
+    <br/>
+    @foreach(Database_Controller_Generator.Models.DatabaseTable table in Model.DatabaseObjects.Tables) {
+        <h4>@table.TableID - @table.TableName</h4>
+        @foreach(Database_Controller_Generator.Models.DatabaseColumn column in table.Columns) {
+            <h6>@column.ColumnName - @column.TypeName - @column.Nullable</h6>
+        }
+    }
+</div>
+<div>
+    <p>@Model.FileContents</p>
+</div>

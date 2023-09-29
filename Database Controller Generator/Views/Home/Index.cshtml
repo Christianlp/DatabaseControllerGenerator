@@ -1,0 +1,33 @@
+﻿@model Database_Controller_Generator.Models.DatabaseRequest
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Enter your database connection information below to get started!</p>
+</div>
+
+<div>
+    @using (Html.BeginForm("LoadDatabaseTablestoFile", "Home", FormMethod.Post)) {
+        <div>
+            @Html.LabelFor(p => p.Hostname)
+            @Html.TextBoxFor(p => p.Hostname)
+        </div>
+        <div>
+            @Html.LabelFor(p => p.Database)
+            @Html.TextBoxFor(p => p.Database)
+        </div>
+        <div>
+            @Html.LabelFor(p => p.Username)
+            @Html.TextBoxFor(p => p.Username)
+        </div>
+        <div>
+            @Html.LabelFor(p => p.Password)
+            @Html.PasswordFor(p => p.Password)
+        </div>
+
+        <input type="submit" value="Submit"/>
+    }
+</div>
